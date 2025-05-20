@@ -58,7 +58,7 @@ pipeline {
 
               stage("Push to Docker Hub") { 
             steps { 
-                withCredentials([usernamePassword(credentialsId: 'credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) { 
+                withCredentials([usernamePassword(credentialsId: 'credi', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) { 
                     sh ''' 
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin 
                         docker tag browser $DOCKER_USER/browser:latest 
