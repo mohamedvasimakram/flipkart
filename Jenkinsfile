@@ -94,7 +94,7 @@ pipeline {
             } 
         } 
 
-        stage("Stop and Restart Container") { 
+               stage("Stop and Restart Container") { 
             steps { 
                 sh """ 
                 docker rm -f app || true 
@@ -110,14 +110,14 @@ pipeline {
                 } 
             } 
         } 
-    } 
+    }
 
-    post { 
-        success { 
-            echo "Deployment successful" 
-        } 
-        failure { 
-            echo "Deployment failed" 
-        } 
-    } 
+    post {
+        success {
+            echo "Deployment successful"
+        }
+        failure {
+            echo "Deployment failed"
+        }
+    }
 }
